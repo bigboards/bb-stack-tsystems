@@ -70,15 +70,15 @@
     <!-- ==================================================================== -->
     <property>
         <name>yarn.nodemanager.webapp.address</name>
-        <value>[[ hex.name ]].hex.bigboards.io:8042</value>
+        <value>{{ vars["ansible_" + ansible_local.bb.node.nic_ext].ipv4.address }}:8042</value>
     </property>
     <property>
         <name>yarn.resourcemanager.webapp.address</name>
-        <value>[[ hex.name ]].hex.bigboards.io:8088</value>
+        <value>{{ vars["ansible_" + ansible_local.bb.node.nic_ext].ipv4.address }}:8088</value>
     </property>
     <property>
         <name>yarn.web-proxy.address</name>
-        <value>[[ hex.name ]].hex.bigboards.io:9046</value>
+        <value>{{ vars["ansible_" + ansible_local.bb.node.nic_ext].ipv4.address }}:9046</value>
     </property>
 
     <!-- ==================================================================== -->
@@ -86,12 +86,12 @@
     <!-- ==================================================================== -->
     <property>
         <name>yarn.resourcemanager.hostname</name>
-        <value>[[ hex.name ]]-n1</value>
+        <value>{{ hostvars[ansible_local.bb.hex.name + '-n1']["ansible_" + ansible_local.bb.node.nic_ext].ipv4.address }}</value>
     </property>
 
     <property>
         <name>yarn.nodemanager.hostname</name>
-        <value>[[ ansible_hostname ]]</value>
+        <value>{{ vars["ansible_" + ansible_local.bb.node.nic_ext].ipv4.address }}</value>
     </property>
     <property>
         <name>yarn.nodemanager.address</name>
@@ -154,7 +154,7 @@
 
     <property>
         <name>yarn.web-proxy.address</name>
-        <value>[[ hex.name ]].hex.bigboards.io:9046</value>
+        <value>{{ vars["ansible_" + ansible_local.bb.node.nic_ext].ipv4.address }}:9046</value>
     </property>
 
     <property>
